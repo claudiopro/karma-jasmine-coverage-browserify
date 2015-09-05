@@ -1,3 +1,5 @@
+var istanbul = require('browserify-istanbul');
+
 // Karma configuration
 // Generated on Fri Sep 04 2015 11:20:57 GMT+0100 (IST)
 module.exports = function(config) {
@@ -38,18 +40,25 @@ module.exports = function(config) {
 		// preprocess matching files before serving them to the browser
 		// available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
 		preprocessors: {
-			'../src/**/*.js' : ['coverage', 'browserify']
+			'../src/**/*.js' : ['browserify']
 			, './unit/*.js' : ['browserify']
 		},
 
 		coverageReporter: {
-			type : 'cobertura'
+			reporters: [
+				{ type: 'html' }
+        , { type: 'cobertura' }
+      ]
 			, dir : '../coverage'
 		},
 
+		// using browserify-istanbul as suggested by
+		// https://github.com/karma-runner/karma-coverage/issues/16#issuecomment-62091196
 		browserify: {
 			debug: true
-			, transform: [ 'brfs' ]
+			, transform: [ 'brfs', istanbul({
+				ignore: ['**/node_modules/**', '**/test/**']
+			})]
     },
 
 		// test results reporter to use
