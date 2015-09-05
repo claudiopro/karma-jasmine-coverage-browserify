@@ -1,8 +1,8 @@
 {
-  "name": "karma-jasmine-coverage",
+  "name": "karma-jasmine-coverage-browserify",
   "version": "0.1.0",
-  "repository": "https://github.com/claudiopro/karma-jasmine-coverage",
-  "description": "Boilerplate project with Karma, Jasmine and code coverage",
+  "repository": "https://github.com/claudiopro/karma-jasmine-coverage-browserify",
+  "description": "Boilerplate project with Karma, Jasmine, Browserify and code coverage",
   "main": "index.js",
   "scripts": {
     "pretest": "npm install",
@@ -15,11 +15,12 @@
   "author": "Claudio Procida",
   "license": "MIT",
   "devDependencies": {
+    "brfs": "^1.4.1",
     "jasmine-core": "^2.3.4",
     "karma": "^0.13.9",
+    "karma-browserify": "^4.3.0",
     "karma-chrome-launcher": "^0.2.0",
     "karma-cli": "^0.1.0",
-    "karma-commonjs": "0.0.13",
     "karma-coverage": "^0.5.1",
     "karma-jasmine": "^0.3.6",
     "karma-junit-reporter": "^0.3.4",
